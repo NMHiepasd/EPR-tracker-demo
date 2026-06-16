@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-100 text-gray-900 text-sm;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  input, select, button { font-family: inherit; }
+  input {
+    @apply h-[34px] border border-gray-300 rounded-md px-2 bg-white text-gray-900 outline-none w-full;
+  }
+  input:focus { @apply border-epr-green; }
+  input[readonly] {
+    @apply bg-epr-green-light border-epr-green-border text-epr-green-dark font-mono font-semibold;
+  }
+  select {
+    @apply h-[34px] border border-gray-300 rounded-md px-2 bg-white text-gray-900 outline-none w-full cursor-pointer;
+  }
+}
+
+@layer components {
+  .btn { @apply px-3 py-1.5 rounded-md border border-gray-300 bg-white text-gray-700 text-xs cursor-pointer; }
+  .btn-green { @apply bg-epr-green border-epr-green text-white font-bold; }
+  .btn-red { @apply border-red-200 text-red-500 bg-white; }
+  .btn-blue { @apply border-blue-200 bg-blue-50 text-blue-700; }
+  .badge { @apply text-[9px] font-extrabold px-1.5 py-0.5 rounded-sm; }
+  .card { @apply bg-white border border-gray-200 rounded-xl mb-2.5 overflow-hidden; }
+  .card-head { @apply px-3.5 py-2 bg-gray-50 border-b border-gray-100 flex items-center gap-1.5; }
+  .lot-chip { @apply text-[10px] px-2 py-0.5 rounded-full bg-epr-green-light text-epr-green-dark border border-epr-green-border font-mono font-bold; }
+  .lot-dot { @apply w-1.5 h-1.5 rounded-full bg-epr-green inline-block flex-shrink-0; }
+  .sum-box { @apply flex justify-between items-center px-3 py-2 bg-epr-green-light border border-epr-green-border rounded-lg; }
+  .field-grid { @apply grid gap-2.5; grid-template-columns: repeat(auto-fill, minmax(185px, 1fr)); }
+  .field label { @apply text-[10px] text-gray-500 font-mono flex items-center gap-1 flex-wrap; }
+  .row-box { @apply border border-gray-200 rounded-lg p-3 mb-2 bg-gray-50; }
+  .nav-sheet-btn { @apply w-full text-left py-1.5 pl-6 pr-3 bg-transparent border-none border-l-[2.5px] border-l-transparent flex items-baseline gap-1.5; }
+  .nav-sheet-btn.active { @apply bg-green-900/20 border-l-epr-green; }
+  .nav-sheet-btn.trace-active { @apply bg-yellow-900/20 border-l-yellow-400; }
+  .trace-hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); @apply rounded-xl p-5 mb-3.5 text-white; }
+  .tm-item { @apply rounded-md p-2 px-3; background: rgba(255,255,255,0.08); }
+  .shake { animation: shake 0.4s ease; }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-7px); }
+    40%, 80% { transform: translateX(7px); }
+  }
+}
