@@ -1,5 +1,6 @@
 import { useLang } from '../hooks/useLang';
 import { evalComputed } from '../utils/compute';
+import { MATERIAL_BY_LEVEL } from '../data/constants';
 
 export default function FieldControl({ field, value, onChange, values }) {
   const { lang } = useLang();
@@ -40,12 +41,24 @@ export default function FieldControl({ field, value, onChange, values }) {
   }
 
   if (field.type === 'select') {
+    const options = field.dependsOn
+        ? MATERIAL_BY_LEVEL[values?.[field.dependsOn]] || []
+        : field.opts || [];
+
     return (
-      <select value={value || ''} onChange={e => onChange(e.target.value)}
-        className="h-[34px] border border-gray-300 rounded-md px-2 bg-white text-gray-900 outline-none w-full cursor-pointer text-xs focus:border-epr-green">
-        <option value="">{lang === 'en' ? '— Select —' : '— Chọn —'}</option>
-        {(field.opts || []).map(o => <option key={o} value={o}>{o}</option>)}
-      </select>
+        <select
+            value={value || ''}
+            onChange={e => onChange(e.target.value)}
+            className="h-[34px] border border-gray-300 rounded-md px-2 bg-white text-gray-900 outline-none w-full cursor-pointer text-xs focus:border-epr-green"
+        >
+          <option value="">{lang === 'en' ? '— Select —' : '— Chọn —'}</option>
+
+          {options.map(o => (
+              <option key={o} value={o}>
+                {o}
+              </option>
+          ))}
+        </select>
     );
   }
 

@@ -81,7 +81,7 @@ export async function saveSheetToAirtable(sheetId, sheetData) {
     }
 
     const repeatRows = getRepeatRows(sheetData);
-    const hasOnlyRepeatRows = ['S10', 'S11', 'S12'].includes(sheetId);
+    const hasOnlyRepeatRows = ['S10', 'S11', 'S12', 's13'].includes(sheetId);
 
     if (hasOnlyRepeatRows) {
         const rows = repeatRows

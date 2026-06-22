@@ -13,6 +13,8 @@ export const AIRTABLE_TABLE_MAP = {
     S12: 'S12',
     S13: 'S13',
     S14: 'S14',
+    S15: 'S15',
+    S16: 'S16',
 };
 
 export const AIRTABLE_REPEAT_TABLE_MAP = {
@@ -21,7 +23,8 @@ export const AIRTABLE_REPEAT_TABLE_MAP = {
     S05: 'S05_Items',
     S08: 'S08_Items',
     S09: 'S09_Items',
-    S13: 'S13_Items',
+    S14: 'S14_Items',
+    S15: 'S15_Items',
 };
 
 export const AIRTABLE_PARENT_LINK_FIELD = {
@@ -30,14 +33,15 @@ export const AIRTABLE_PARENT_LINK_FIELD = {
     S05: 'S05 Record',
     S08: 'S08 Record',
     S09: 'S09 Record',
-    S13: 'S13 Record',
+    S14: 'S14 Record',
+    S15: 'S15 Record',
 };
 
 export const AIRTABLE_FIELD_MAP = {
     S01: {
         hd: { ticket_no: 'Ticket No', date: 'Date', shift: 'Shift', weigher: 'Weigher' },
-        vh: { plate_no: 'Plate No', supplier_name: 'Supplier Name', driver_name: 'Driver Name', material_type: 'Material Type' },
-        wg: { gross_weight_kg: 'Gross Weight Kg', tare_weight_kg: 'Tare Weight Kg' },
+        vh: { plate_no: 'Plate No', supplier_name: 'Supplier Name', driver_name: 'Driver Name', material_level: 'Material Level', material_type: 'Material Type' },
+        wg: { time_in: 'Time in', time_out: 'Time out', gross_weight_kg: 'Gross Weight Kg', tare_weight_kg: 'Tare Weight Kg' },
     },
 
     S02: {
@@ -47,12 +51,19 @@ export const AIRTABLE_FIELD_MAP = {
 
     S03: {
         hd: { ticket_no: 'Ticket No', date: 'Date', shift: 'Shift' },
-        vc: { plate_no: 'Plate No', po_no: 'PO No', customer_name: 'Customer Name', material_type: 'Material Type' },
+        vc: { plate_no: 'Plate No', po_no: 'PO No', customer_name: 'Customer Name', material_level: 'Material Level', material_type: 'Material Type' },
         wg: { tare_weight_kg: 'Tare Weight Kg', gross_weight_kg: 'Gross Weight Kg' },
     },
 
     S04: {
         hd: { ticket_no: 'Ticket No', date: 'Date' },
+        dl: {
+            contract_no: 'Contract No',
+            delivery_person: 'Delivery Person',
+            phone: 'Phone',
+            address: 'Address',
+            remarks: 'Remarks',
+        },
         tx: {
             recipient_name: 'Recipient Name',
             recycler_name: 'Recycler Name',
@@ -70,6 +81,7 @@ export const AIRTABLE_FIELD_MAP = {
         li: {
             lot_no: 'LOT No',
             supplier_code: 'Supplier Code',
+            material_level: 'Material Level',
             material_code: 'Material Code',
             bales_per_lot: 'Bales Per Lot',
             total_weight_kg: 'Total Weight Kg',
@@ -98,6 +110,13 @@ export const AIRTABLE_FIELD_MAP = {
 
     S08: {
         hd: { ticket_no: 'Ticket No', date: 'Date' },
+        dl: {
+            contract_no: 'Contract No',
+            delivery_person: 'Delivery Person',
+            phone: 'Phone',
+            address: 'Address',
+            remarks: 'Remarks',
+        },
         sp: {
             supplier_name: 'Supplier Name',
             supplier_code: 'Supplier Code',
@@ -109,9 +128,15 @@ export const AIRTABLE_FIELD_MAP = {
 
     S09: {
         hd: { doc_no: 'Doc No' },
+        dl: {
+            contract_no: 'Contract No',
+            delivery_person: 'Delivery Person',
+            phone: 'Phone',
+            address: 'Address',
+            remarks: 'Remarks',
+        },
     },
-
-    S13: {
+    S14: {
         hd: {
             month: 'Month',
             year: 'Year',
@@ -120,8 +145,25 @@ export const AIRTABLE_FIELD_MAP = {
         },
     },
 
-    S14: {
-        hd: { doc_no: 'Doc No', report_period: 'Report Period' },
+    S15: {
+        hd: {
+            month: 'Month',
+            year: 'Year',
+            po_no: 'PO No',
+            contract_no: 'Contract No',
+        },
+    },
+
+    S16: {
+        hd: {
+            doc_no: 'Doc No',
+            report_period: 'Report Period',
+            report_date: 'Report Date',
+            city: 'City',
+            inspector: 'Inspector',
+            reporter: 'Reporter',
+        },
+
         mb: {
             raw_material_kg: 'Raw Material Kg',
             sorting_kg: 'Sorting Kg',
@@ -133,6 +175,7 @@ export const AIRTABLE_FIELD_MAP = {
 export const AIRTABLE_REPEAT_FIELD_MAP = {
     S02: {
         ln: {
+            material_level: 'Material Level',
             material_type: 'Material Type',
             weighing_time: 'Weighing Time',
             weight_kg: 'Weight Kg',
@@ -190,6 +233,7 @@ export const AIRTABLE_REPEAT_FIELD_MAP = {
         ln: {
             lot_no: 'LOT',
             prod_order_code: 'Production Order Code',
+            material_level: 'Material Level',
             material_code: 'Material Code',
             total_bales: 'Total Bales',
             total_material_kg: 'Total Material Kg',
@@ -197,6 +241,8 @@ export const AIRTABLE_REPEAT_FIELD_MAP = {
             sorting_date: 'Sorting Date',
             shift: 'Shift',
             supervisor_name: 'Supervisor Name',
+            summary_doc: 'Summary Doc',
+            labor_qty: 'Quantity Of Labors',
         },
     },
 
@@ -212,6 +258,8 @@ export const AIRTABLE_REPEAT_FIELD_MAP = {
             downtime_hr: 'Downtime Hr',
             stop_reason: 'Stop Reason',
             supervisor_name: 'Supervisor Name',
+            summary_doc: 'Summary Doc',
+            labor_qty: 'Quantity Of Labors',
         },
     },
 
@@ -219,6 +267,7 @@ export const AIRTABLE_REPEAT_FIELD_MAP = {
         ln: {
             lot_no_material: 'Input LOT',
             prod_order_code: 'Production Order Code',
+            material_level: 'Material Level',
             material_code: 'Material Code',
             manufacturing_date: 'Manufacturing Date',
             machine_code: 'Machine Code',
@@ -227,15 +276,51 @@ export const AIRTABLE_REPEAT_FIELD_MAP = {
             finished_code: 'Finished Pellet Code',
             lot_no_pellet: 'Output LOT',
             pelletizing_wt_kg: 'Pelletizing Weight Kg',
+            summary_doc: 'Summary Doc',
+            labor_qty: 'Quantity Of Labors',
         },
     },
 
     S13: {
         ln: {
+            lot_no_material: 'Material LOT',
+            summary_doc: 'Summary Doc',
+            production_report_code: 'Production Report Code',
+            prod_order_code: 'Production Order Code',
+            material_level: 'Material Level',
+            material_code: 'Material Code',
+            manufacturing_date: 'Manufacturing Date',
+            press_machine_code: 'Press Machine Code',
+            shift: 'Shift',
+            operator_code: 'Operator Code',
+            operator_name: 'Operator Name',
+            qc_staff_code: 'QC Staff Code',
+            qc_staff_name: 'QC Staff Name',
+            thickness_mm: 'Thickness Mm',
+            lot_no_board: 'Board LOT',
+            unit: 'Unit',
+            sheet_weight_kg: 'Sheet Weight Kg',
+        },
+    },
+
+    S14: {
+        ln: {
             packaging_name: 'Packaging Name',
+            unit: 'Unit',
             input_weight_kg: 'Input Weight Kg',
             recycling_method: 'Recycling Method',
             recovery_rate_pct: 'Recovery Rate %',
         },
     },
+
+    S15: {
+        ln: {
+            packaging_name: 'Packaging Name',
+            unit: 'Unit',
+            input_weight_kg: 'Input Weight Kg',
+            recycling_method: 'Recycling Method',
+            recovery_rate_pct: 'Recovery Rate %',
+        },
+    },
+
 };

@@ -4,6 +4,51 @@ export const USERS = [
   { id: 'recycler01', pass: 'Rec@2025',  role: 'REC',   name: 'Recycler — MAC',     color: '#0F766E' },
 ];
 
+export const MATERIAL_LEVELS = [
+  'LEVEL 1 — Physical Form / Dạng vật lý',
+  'LEVEL 2 — Polymer Type / Chủng loại nhựa',
+  'LEVEL 3A — Form / Hình thức',
+  'LEVEL 3B — Color / Màu sắc',
+  'LEVEL 3C — Condition / Tình trạng',
+];
+
+export const MATERIAL_BY_LEVEL = {
+  'LEVEL 1 — Physical Form / Dạng vật lý': [
+    'R — Rigid / Nhựa cứng',
+    'F — Flexible / Nhựa mềm',
+    'M — Mixed / Hỗn hợp',
+  ],
+
+  'LEVEL 2 — Polymer Type / Chủng loại nhựa': [
+    'PET — Polyethylene Terephthalate / Chai, hộp nhựa trong cứng',
+    'HDPE — High-Density Polyethylene / Can, thùng nhựa cứng mật độ cao',
+    'LDPE — Low-Density Polyethylene / Nhựa mềm, PE film',
+    'PP — Polypropylene / Nhựa PP, hộp, cốc, ống',
+    'PS — Polystyrene / Xốp, nhựa PS',
+    'PVC — Polyvinyl Chloride / Nhựa PVC, ống',
+    'MIX — Mixed Polymers / Hỗn hợp nhiều loại nhựa',
+  ],
+
+  'LEVEL 3A — Form / Hình thức': [
+    'B — Baled / Đóng kiện',
+    'L — Loose / Hàng rời',
+    'BG — Bag / Đóng bao',
+    'C — Crushed / Băm / xay',
+  ],
+
+  'LEVEL 3B — Color / Màu sắc': [
+    'BL — Blue / Xanh',
+    'CL — Clear / Trong suốt',
+    'MX — Mixed / Hỗn hợp màu',
+  ],
+
+  'LEVEL 3C — Condition / Tình trạng': [
+    'D — Dirty / Nhựa bẩn',
+    'W — Washed / Đã qua rửa sơ bộ',
+    'C — Clean / Nhựa sạch',
+  ],
+};
+
 export const ROLE_ACCESS = {
   admin: ['MA','LOT','REC','AI'],
   MA:    ['MA','LOT'],
